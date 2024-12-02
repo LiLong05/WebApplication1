@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CartItem>
+<h2>Your Cart</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Product.Price * item.Quantity)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>Total: @Model.Sum(item => item.Product.Price * item.Quantity)</p>
+<a href="/Cart/Checkout">Proceed to Checkout</a>

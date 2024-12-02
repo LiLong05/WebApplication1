@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Product>
+<h2>Product List</h2>
+@foreach (var product in Model)
+{
+    <div>
+        <img src="@product.ImageUrl" alt="@product.Name" width="200" />
+        <h3>@product.Name</h3>
+        <p>@product.Description</p>
+        <p>Price: $@product.Price</p>
+        <a href="/Home/ProductDetails/@product.Id">View Details</a>
+    </div>
+}
